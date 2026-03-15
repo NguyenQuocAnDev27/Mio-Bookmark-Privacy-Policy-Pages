@@ -3,149 +3,352 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Mio Bookmark</title>
+  <meta name="description" content="Privacy Policy for Mio Bookmark Chrome Extension" />
+  <title>Privacy Policy | Mio Bookmark</title>
   <style>
     :root {
-      --bg: #f7f8fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
       --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --max: 980px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 32%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
       color: var(--text);
-      line-height: 1.6;
-    }
-
-    .wrap {
-      max-width: 860px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    }
-
-    h1, h2 {
-      line-height: 1.25;
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 32px;
-    }
-
-    h2 {
-      margin-top: 28px;
-      font-size: 20px;
-    }
-
-    p, li {
-      font-size: 16px;
-    }
-
-    .muted {
-      color: var(--muted);
+      line-height: 1.7;
     }
 
     a {
       color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .meta-item {
+      padding: 10px 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 56px;
+    }
+
+    .panel, .content-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+    }
+
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+    }
+
+    .toc {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc li + li { margin-top: 8px; }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .toc a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .content-card {
+      padding: 32px;
+    }
+
+    section + section {
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2.section-title {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: #1e293b;
     }
 
     ul {
+      margin: 0;
       padding-left: 20px;
+      color: #1e293b;
+    }
+
+    li + li { margin-top: 10px; }
+
+    .callout {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      border-radius: 14px;
+      color: #1e3a8a;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-box {
+      margin-top: 14px;
+      padding: 16px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 28px; }
+      .hero-card, .content-card, .panel { padding: 20px; }
+      .hero p { font-size: 16px; }
+      h2.section-title { font-size: 22px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Privacy Policy for Mio Bookmark</h1>
-      <p class="muted"><strong>Effective date:</strong> 2026-03-15</p>
-
-      <p>
-        Mio Bookmark respects your privacy. This Privacy Policy explains what information is collected,
-        how it is used, and how it is protected when you use the Mio Bookmark Chrome extension.
-      </p>
-
-      <h2>1. Purpose of the Extension</h2>
-      <p>
-        Mio Bookmark is designed solely to help users manage Chrome bookmarks in a more visual and convenient way.
-        The extension allows users to browse bookmarks in a folder tree, search quickly, reorganize bookmarks,
-        save the current page, sync bookmarks from the current Chrome profile, and customize folder display with icons,
-        colors, and interface preferences. All features exist only to support organizing, accessing, and personalizing
-        bookmarks within the browser.
-      </p>
-
-      <h2>2. Information We Collect</h2>
-      <p>We may collect the following information only when necessary to provide the service:</p>
-      <ul>
-        <li><strong>Email address</strong> provided by the user for sending an activation key or enabling Premium access.</li>
-        <li><strong>Bookmark-related data</strong> already available in the user's Chrome profile, only as required for the extension's core bookmark management features.</li>
-        <li><strong>Customization preferences</strong> such as icons, colors, layout settings, and interface choices used to personalize the bookmark experience.</li>
-      </ul>
-
-      <h2>3. How We Use the Information</h2>
-      <p>We use the collected information only for the following purposes:</p>
-      <ul>
-        <li>To provide the extension's bookmark management features.</li>
-        <li>To display, organize, search, edit, and personalize bookmarks inside Chrome.</li>
-        <li>To sync and maintain bookmark-related settings for the current user profile.</li>
-        <li>To send activation keys or verify Premium access when the user provides an email address.</li>
-        <li>To provide support related to access or service functionality.</li>
-      </ul>
-
-      <h2>4. Data Sharing</h2>
-      <p>
-        We do not sell personal information. We do not share user data with third parties except when necessary
-        to operate the service, such as using an email delivery provider to send activation emails, or when required by law.
-      </p>
-
-      <h2>5. Data Retention</h2>
-      <p>
-        We retain personal information only for as long as necessary to provide the service,
-        comply with legal obligations, resolve disputes, and enforce our agreements.
-      </p>
-
-      <h2>6. Data Security</h2>
-      <p>
-        We take reasonable measures to protect user information against unauthorized access,
-        alteration, disclosure, or destruction.
-      </p>
-
-      <h2>7. Your Choices</h2>
-      <p>
-        You may contact us to request access, correction, or deletion of your personal information,
-        subject to applicable law.
-      </p>
-
-      <h2>8. Changes to This Policy</h2>
-      <p>
-        We may update this Privacy Policy from time to time. Any changes will be posted on this page
-        with an updated effective date.
-      </p>
-
-      <h2>9. Contact</h2>
-      <p>
-        If you have any questions about this Privacy Policy, you can contact us at:
-        <br />
-        <a href="mailto:nguyenquocan841@gmail.com">nguyenquocan841@gmail.com</a>
-      </p>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="badge">Mio Bookmark • Chrome Extension</div>
+        <h1>Privacy Policy</h1>
+        <p>
+          This Privacy Policy explains what information Mio Bookmark may access or collect,
+          how that information is used, and how we protect it when you use the extension.
+        </p>
+        <div class="meta">
+          <div class="meta-item"><strong>Effective date:</strong>&nbsp; March 15, 2026</div>
+          <div class="meta-item"><strong>Contact:</strong>&nbsp; nguyenquocan841@gmail.com</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <main class="container layout">
+    <aside class="panel" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ul class="toc">
+        <li><a href="#purpose">1. Purpose of the Extension</a></li>
+        <li><a href="#collect">2. Information We Collect</a></li>
+        <li><a href="#use">3. How We Use Information</a></li>
+        <li><a href="#sharing">4. Data Sharing</a></li>
+        <li><a href="#retention">5. Data Retention</a></li>
+        <li><a href="#security">6. Data Security</a></li>
+        <li><a href="#choices">7. Your Choices</a></li>
+        <li><a href="#changes">8. Changes to This Policy</a></li>
+        <li><a href="#contact">9. Contact</a></li>
+      </ul>
+    </aside>
+
+    <article class="content-card">
+      <section id="purpose">
+        <h2 class="section-title">1. Purpose of the Extension</h2>
+        <p>
+          Mio Bookmark is designed solely to help users manage Chrome bookmarks in a more visual and convenient way.
+          The extension lets users browse bookmarks in a folder tree, search quickly, reorganize items, save the current page,
+          sync bookmarks from the current Chrome profile, and customize folder display with icons, colors, and interface settings.
+        </p>
+        <p>
+          All features are intended only to support organizing, accessing, and personalizing bookmarks within the browser.
+        </p>
+      </section>
+
+      <section id="collect">
+        <h2 class="section-title">2. Information We Collect</h2>
+        <p>We collect or access information only when necessary to provide the extension's functionality.</p>
+        <ul>
+          <li><strong>Email address:</strong> only when the user voluntarily provides it to receive an activation key or enable Premium access.</li>
+          <li><strong>Bookmark-related data:</strong> bookmark folders, bookmark items, and related structure available in the user's Chrome profile, only as needed for bookmark management features.</li>
+          <li><strong>Customization preferences:</strong> icons, colors, layout settings, and interface preferences chosen by the user.</li>
+        </ul>
+        <div class="callout">
+          Mio Bookmark does not collect personal information beyond what is necessary to provide bookmark management and optional Premium activation.
+        </div>
+      </section>
+
+      <section id="use">
+        <h2 class="section-title">3. How We Use Information</h2>
+        <ul>
+          <li>To provide the extension's core bookmark management features.</li>
+          <li>To display, organize, search, edit, and personalize bookmarks in Chrome.</li>
+          <li>To sync and maintain bookmark-related settings for the current user profile.</li>
+          <li>To send activation keys or verify Premium access when a user provides an email address.</li>
+          <li>To respond to support requests related to extension access or functionality.</li>
+        </ul>
+      </section>
+
+      <section id="sharing">
+        <h2 class="section-title">4. Data Sharing</h2>
+        <p>
+          We do not sell personal information. We do not share user data with third parties except when necessary to operate the service,
+          such as using an email delivery provider to send activation emails, or when required by law.
+        </p>
+      </section>
+
+      <section id="retention">
+        <h2 class="section-title">5. Data Retention</h2>
+        <p>
+          We retain personal information only for as long as necessary to provide the service, comply with legal obligations,
+          resolve disputes, and enforce our agreements.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2 class="section-title">6. Data Security</h2>
+        <p>
+          We take reasonable administrative, technical, and organizational measures to protect information against unauthorized access,
+          alteration, disclosure, or destruction.
+        </p>
+      </section>
+
+      <section id="choices">
+        <h2 class="section-title">7. Your Choices</h2>
+        <p>
+          You may contact us to request access, correction, or deletion of personal information you have provided,
+          subject to applicable law and technical limitations.
+        </p>
+      </section>
+
+      <section id="changes">
+        <h2 class="section-title">8. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised effective date.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">9. Contact</h2>
+        <p>If you have questions about this Privacy Policy, please contact:</p>
+        <div class="contact-box">
+          <strong>Email:</strong> <a href="mailto:nguyenquocan841@gmail.com">nguyenquocan841@gmail.com</a>
+        </div>
+      </section>
+
+      <div class="footer">
+        © 2026 Mio Bookmark. All rights reserved.
+      </div>
+    </article>
+  </main>
 </body>
 </html>
