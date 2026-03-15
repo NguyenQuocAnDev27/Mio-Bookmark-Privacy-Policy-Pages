@@ -1,5 +1,7 @@
 # Mio Bookmark Privacy Policy Website
 
+Licensed under the MIT License.
+
 This repository hosts the public Privacy Policy page for the **Mio Bookmark** Chrome extension.
 
 ## Purpose
